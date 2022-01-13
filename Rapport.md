@@ -42,15 +42,15 @@
 | #  | Topic |
 | ---  | --- |
 |Question | How do we **define and build our own Docker image**?|
-| | *Enter your response here...*  |
+| | By creating a Dockerfile that specify the configuration of our image and building it with the `docker build` command.  |
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?  |
-| | *Enter your response here...*  |
+| | We can use it to execute some code when we initiate our docker container  |
 |Question | After building our Docker image, how do we use it to **run containers**?  |
-| | *Enter your response here...*  |
+| | With the `docker run NAME` command. Some parameters such as -p (to map a port) or -d (detached) can be added.  |
 |Question | How do we get the list of all **running containers**?  |
-| | *Enter your response here...*  |
+| | Through the `docker ps` command. |
 |Question | How do we **stop/kill** one running container?  |
-| | *Enter your response here...*  |
+| | With respectively the `docker stop NAME` or `docker kill NAME` commands. |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
 | | *Enter your response here...*  |
 
