@@ -52,7 +52,7 @@
 |Question | How do we **stop/kill** one running container?  |
 | | With respectively the `docker stop NAME` or `docker kill NAME` commands. |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
-| | *Enter your response here...*  |
+| | By using a tool such as wireshark or tcpdump to monitor the network.  |
 
 
 ## Task 4: implement an "auditor" Node.js application
@@ -62,13 +62,13 @@
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group? |
 | | *Enter your response here...*  |
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?  |
-| | *Enter your response here...* |
+| | simply by joining a key and a value to a map object (`const map = new Map();` then `map.set('key', value);`) |
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
 | | *Enter your response here...* |
 |Question | When and how do we **get rid of inactive players**?  |
-| | *Enter your response here...* |
+| | We get rid of them when they didn't send a signal in the last 5 seconds by deleting their json row. |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
-| | *Enter your response here...* |
+| | By importing the module "express", and then use functions `listen` and `send` to receive and send data. |
 
 
 ## Task 5: package the "auditor" app in a Docker image
