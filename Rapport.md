@@ -28,7 +28,7 @@
 |Question | How can we use the `https://www.npmjs.com/` web site?                                                                                                                  |
 | | This website can be used as a npms modules repository to get new modules.                                                                                              |
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?                                                                                                  |
-| | *Enter your response here...*                                                                                                                                          |
+| | We can install the uuid module by using the `npm install uuid --save` command, then generate a uuid by using `const { v4: uuidv4 } = require('uuid'); uuidv4();` in the js code. |
 |Question | In Node.js, how can we execute a function on a **periodic** basis?                                                                                                     |
 | | With the command : `setInterval(functionName, timeInMs);`                                                                                                              |
 |Question | In Node.js, how can we **emit UDP datagrams**?                                                                                                                         |
