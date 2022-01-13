@@ -17,24 +17,24 @@
 
 ## Task 2: implement a "musician" Node.js application
 
-| #  | Topic                                                                                                                                                        |
-| ---  |--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**?                                                                          |
-| | *Enter your response here...*                                                                                                                                |
-|Question | What is **npm**?                                                                                                                                             |
-| | npm is a package manager for JavaScript                                                                                                                      |
-|Question | What is the `npm install` command and what is the purpose of the `--save` flag?                                                                              |
-| | 'npm install' is used to install a module and '--save' adds the package to the dependencies. From version 5.0, '--save' is optionnal and done automatically. |
-|Question | How can we use the `https://www.npmjs.com/` web site?                                                                                                        |
-| | This website can be used as a npms modules repository to get new modules.                                                                                    |
-|Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?                                                                                        |
-| | *Enter your response here...*                                                                                                                                |
-|Question | In Node.js, how can we execute a function on a **periodic** basis?                                                                                           |
-| | With the command : `setInterval(functionName, timeInMs);`                                                                                                    |
-|Question | In Node.js, how can we **emit UDP datagrams**?                                                                                                               |
-| | *Enter your response here...*                                                                                                                                |
-|Question | In Node.js, how can we **access the command line arguments**?                                                                                                |
-| | *Enter your response here...*                                                                                                                                |
+| #  | Topic                                                                                                                                                                  |
+| ---  |------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**?                                                                                    |
+| | *Enter your response here...*                                                                                                                                          |
+|Question | What is **npm**?                                                                                                                                                       |
+| | npm is a package manager for JavaScript                                                                                                                                |
+|Question | What is the `npm install` command and what is the purpose of the `--save` flag?                                                                                        |
+| | 'npm install' is used to install a module and '--save' adds the package to the dependencies. From version 5.0, '--save' is optionnal and done automatically.           |
+|Question | How can we use the `https://www.npmjs.com/` web site?                                                                                                                  |
+| | This website can be used as a npms modules repository to get new modules.                                                                                              |
+|Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?                                                                                                  |
+| | *Enter your response here...*                                                                                                                                          |
+|Question | In Node.js, how can we execute a function on a **periodic** basis?                                                                                                     |
+| | With the command : `setInterval(functionName, timeInMs);`                                                                                                              |
+|Question | In Node.js, how can we **emit UDP datagrams**?                                                                                                                         |
+| | With the function: `socket.send(msg[, offset, length][, port][, address][, callback])`                                                                                 |
+|Question | In Node.js, how can we **access the command line arguments**?                                                                                                          |
+| | An array containing the application's name ("node"), the path of the script and the command line arguments is created when a script is launched. This array is called ` process.argv`|
 
 
 ## Task 3: package the "musician" app in a Docker image
