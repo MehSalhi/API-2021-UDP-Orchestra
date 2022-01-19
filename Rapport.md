@@ -4,7 +4,7 @@
 | #        | Topic                                                                                                                                                                                  |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands?                |
-|          | *Insert your diagram here...*                                                                                                                                                          |
+|          | ![](API_Orchestra_Architecture2.png)                                                                                                                                                                                       |
 | Question | Who is going to **send UDP datagrams** and **when**?                                                                                                                                   |
 |          | Every Musician every second                                                                                                                                                            |                                                                                                                                                         |
 | Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received?                                                                                       |
