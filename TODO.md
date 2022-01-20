@@ -1,10 +1,10 @@
 # TODO
 
 - diagram OK
-- musician
+- musician GUILAIN
   - il recoit en argument son son ("piano", "drum", "flute", "trumpet", "violin")
   - broadcast sonson("ti-ta-ti", "pouet", ...) chaque seconde avec son UUID
-- auditor
+- auditor MEHDI
   - se connecte au broadcast
   - crée ou met à jour un tableau contenant le son de chaque musicien actif 
    depuis les 5 dernières seconds
