@@ -46,8 +46,8 @@ s.bind(protocol.PROTOCOL_PORT, function() {
 // function executed each time a datagram is received
 s.on('message', function(msg, source) {
     console.log("Data has arrived: " + msg + ". Source port: " + source.port);
-    console.log(msg.getData("uuid"));
-    console.log(msg.getData("sound"));
+    //console.log(msg.getData("uuid"));
+    //console.log(msg.getData("sound"));
 });
 
 // fonction à executer à chaque connexion client
