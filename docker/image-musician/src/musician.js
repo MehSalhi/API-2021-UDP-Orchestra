@@ -19,6 +19,8 @@ function Musician(instrument){
         this.sound = "gzi-gzi";
     }else if(instrument === "drum"){
         this.sound = "boum-boum";
+    }else{
+        return;
     }
 
     Musician.prototype.update = function (){
