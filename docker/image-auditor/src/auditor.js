@@ -17,8 +17,8 @@ var app = new express();
 // module to work with UDP
 const dgram = require('dgram');
 
-const protocol = require('../../orchestra-protocol');
-const {PROTOCOL_PORT, AUDITOR_PORT} = require("../../orchestra-protocol");
+const protocol = require('./orchestra-protocol');
+const {PROTOCOL_PORT, AUDITOR_PORT} = require("./orchestra-protocol");
 
 // tableau de musiciens
 var musicians = [];
@@ -49,7 +49,7 @@ s.on('message', function(msg, source) {
     console.log("Data has arrived: " + msg + ". Source port: " + source.port);
     var obj = JSON.parse(msg);
     if(!musicians.find(({ uuid }) => uuid === obj.uuid)) {
-        console.log("new item");
+        console.log("New musician added to table");
         musicians.push({
             uuid: obj.uuid,
             sound: obj.sound,
@@ -73,15 +73,13 @@ s.on('connection', function() {
 // fonction à executer à chaque connexion client
 function sendMusicians(){
     return JSON.stringify(Array.from(musicians.entries()));
-
 }
 
 // fonction à executer lorsqu'un musicien n'a pas émis de son depuis 5 secondes
 function deleteMusician(uuid) {
-    console.log("Deleted entry: " + uuid);
-    console.log(musicians.find(({ uuid }) => uuid === uuid));
     var index = musicians.indexOf(musicians.find(({ uuid }) => uuid === uuid));
     musicians.splice(index, 1);
+    console.log("Deleted entry: " + uuid);
 }
 
 

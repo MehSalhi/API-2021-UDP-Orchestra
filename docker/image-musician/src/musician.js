@@ -1,4 +1,4 @@
-var protocol = require('../../orchestra-protocol');
+var protocol = require('./orchestra-protocol');
 
 var dgram = require('dgram');
 
