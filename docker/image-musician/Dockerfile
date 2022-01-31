@@ -2,4 +2,4 @@ FROM node:16.13.1-alpine
 
 COPY src /opt/app
 
-CMD ["node", "/opt/app/musician.js"]
+ENTRYPOINT ["node", "/opt/app/musician.js"]
