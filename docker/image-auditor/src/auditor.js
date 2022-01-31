@@ -53,7 +53,7 @@ s.on('message', function(msg, source) {
         musicians.push({
             uuid: obj.uuid,
             sound: obj.sound,
-            activeSince: Date.now()
+            activeSince: new Date().toISOString()
         });
         timers.set(obj.uuid, setTimeout(deleteMusician.bind(), 5000, obj.uuid));
     }
