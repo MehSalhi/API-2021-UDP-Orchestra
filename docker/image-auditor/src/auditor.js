@@ -55,7 +55,7 @@ s.on('message', function(msg, source) {
             sound: obj.sound,
             activeSince: Date.now()
         });
-        timers.set(obj.uuid, setTimeout(deleteMusician.bind(null, obj.uuid), 5000));
+        timers.set(obj.uuid, setTimeout(deleteMusician.bind(), 5000, obj.uuid));
     }
     else {
         clearTimeout(timers.get(obj.uuid));
