@@ -79,8 +79,9 @@ function sendMusicians(){
 // fonction à executer lorsqu'un musicien n'a pas émis de son depuis 5 secondes
 function deleteMusician(uuid) {
     console.log("Deleted entry: " + uuid);
-    delete musicians.find(({ uuid }) => uuid === uuid);
-    //delete musicians[uuid];
+    console.log(musicians.find(({ uuid }) => uuid === uuid));
+    var index = musicians.indexOf(musicians.find(({ uuid }) => uuid === uuid));
+    musicians.splice(index, 1);
 }
 
 
