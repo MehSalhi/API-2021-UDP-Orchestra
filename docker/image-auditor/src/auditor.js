@@ -59,7 +59,7 @@ s.on('message', function(msg, source) {
     }
     else {
         clearTimeout(timers.get(obj.uuid));
-        timers.set(obj.uuid, setTimeout(deleteMusician.bind(obj.uuid), 5000));
+        timers.set(obj.uuid, setTimeout(deleteMusician.bind(obj.uuid), 5000, obj.uuid));
     }
     console.log(musicians.find(({ uuid }) => uuid === obj.uuid));
 
