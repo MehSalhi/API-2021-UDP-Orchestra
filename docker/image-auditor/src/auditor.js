@@ -29,13 +29,20 @@ console.log("Auditor started...");
 // listen
 app.listen(AUDITOR_PORT, function() {
     console.log("Accepting request on port " + AUDITOR_PORT);
+    console.log("new client");
 });
 
 // execute le code à chaque requête "GET /"
 app.get('/', function(req, res) {
-    console.log("function executed");
     res.send(sendMusicians());
 })
+
+
+app.on('connection', function(client){
+    console.log("New client connected");
+    client.send(sendMusicians());
+});
+
 
 // Datagram socket to listen to datagrams incoming from musicians
 const s = dgram.createSocket('udp4');
@@ -66,9 +73,7 @@ s.on('message', function(msg, source) {
 });
 
 
-s.on('connection', function() {
-    res.send(sendMusicians());
-});
+
 
 // fonction à executer à chaque connexion client
 function sendMusicians(){
