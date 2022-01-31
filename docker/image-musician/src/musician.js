@@ -7,26 +7,27 @@ var s = dgram.createSocket('udp4');
 const { v4: uuidv4 } = require('uuid');
 var uuid = uuidv4();
 
+//console.log("uuid: "+ uuid);
 function Musician(instrument){
     this.instrument = instrument;
     if(instrument === "piano"){
-        this.sound = "ti-ta-ti";
+        sound = "ti-ta-ti";
     }else if(instrument === "trumpet"){
-        this.sound = "pouet";
+        sound = "pouet";
     }else if(instrument === "flute"){
-        this.sound = "trulu";
+        sound = "trulu";
     }else if(instrument === "violin"){
-        this.sound = "gzi-gzi";
+        sound = "gzi-gzi";
     }else if(instrument === "drum"){
-        this.sound = "boum-boum";
+        sound = "boum-boum";
     }else{
         return;
     }
 
     Musician.prototype.update = function (){
         var emission = {
-            uuid : this.uuid,
-            sound : this.sound
+            uuid : uuid,
+            sound : sound
         }
 
         var payload = JSON.stringify(emission);
@@ -43,5 +44,4 @@ function Musician(instrument){
 
 var instrument = process.argv[2];
 var sound;
-
-var m = new Musician(instrument);
+new Musician(instrument);
