@@ -18,7 +18,6 @@ var app = new express();
 const dgram = require('dgram');
 
 const protocol = require('./orchestra-protocol');
-const {PROTOCOL_PORT, AUDITOR_PORT} = require("./orchestra-protocol");
 
 // tableau de musiciens
 var musicians = [];
@@ -27,22 +26,22 @@ const timers = new Map();
 console.log("Auditor started...");
 
 // listen
-app.listen(AUDITOR_PORT, function() {
-    console.log("Accepting request on port " + AUDITOR_PORT);
-    console.log("new client");
+var server = app.listen(protocol.AUDITOR_PORT, function() {
+    console.log("Accepting request on port " + protocol.AUDITOR_PORT);
 });
 
 // execute le code à chaque requête "GET /"
+/*
 app.get('/', function(req, res) {
     res.send(sendMusicians());
 })
 
+ */
 
-app.on('connection', function(client){
-    console.log("New client connected");
-    client.send(sendMusicians());
+// executed on each new client connection
+server.on("connection", function(socket)  {
+    socket.write(sendMusicians());
 });
-
 
 // Datagram socket to listen to datagrams incoming from musicians
 const s = dgram.createSocket('udp4');
@@ -53,7 +52,7 @@ s.bind(protocol.PROTOCOL_PORT, function() {
 
 // function executed each time a datagram is received
 s.on('message', function(msg, source) {
-    console.log("Data has arrived: " + msg + ". Source port: " + source.port);
+    //console.log("Data has arrived: " + msg + ". Source port: " + source.port);
     var obj = JSON.parse(msg);
     if(!musicians.find(({ uuid }) => uuid === obj.uuid)) {
         console.log("New musician added to table");
@@ -68,9 +67,10 @@ s.on('message', function(msg, source) {
         clearTimeout(timers.get(obj.uuid));
         timers.set(obj.uuid, setTimeout(deleteMusician.bind(obj.uuid), 5000, obj.uuid));
     }
-    console.log(musicians.find(({ uuid }) => uuid === obj.uuid));
+    //console.log(musicians.find(({ uuid }) => uuid === obj.uuid));
 
 });
+
 
 
 
