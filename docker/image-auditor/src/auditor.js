@@ -23,6 +23,12 @@ const protocol = require('./orchestra-protocol');
 var musicians = [];
 const timers = new Map();
 
+const role = new Map();
+role.set("ti-ta-ti", "piano");
+role.set("trulu", "flute");
+role.set("gzi-gzi", "violin");
+role.set("boum-boum", "drum");
+
 console.log("Auditor started...");
 
 // listen
@@ -55,10 +61,10 @@ s.on('message', function(msg, source) {
     //console.log("Data has arrived: " + msg + ". Source port: " + source.port);
     var obj = JSON.parse(msg);
     if(!musicians.find(({ uuid }) => uuid === obj.uuid)) {
-        console.log("New musician added to table");
+        console.log("New musician: " + obj.uuid + " " + obj.sound);
         musicians.push({
             uuid: obj.uuid,
-            sound: obj.sound,
+            instrument: role.get(obj.sound),
             activeSince: new Date().toISOString()
         });
         timers.set(obj.uuid, setTimeout(deleteMusician.bind(), 5000, obj.uuid));
@@ -68,11 +74,7 @@ s.on('message', function(msg, source) {
         timers.set(obj.uuid, setTimeout(deleteMusician.bind(obj.uuid), 5000, obj.uuid));
     }
     //console.log(musicians.find(({ uuid }) => uuid === obj.uuid));
-
 });
-
-
-
 
 
 // fonction à executer à chaque connexion client
@@ -86,6 +88,4 @@ function deleteMusician(uuid) {
     musicians.splice(index, 1);
     console.log("Deleted entry: " + uuid);
 }
-
-
-console.log("Auditor ended...");
+console.log("Auditor terminated");
