@@ -51,6 +51,7 @@ app.get('/', function(req, res) {
 // executed on each new client connection
 server.on("connection", function(socket)  {
     socket.write(sendMusicians());
+    socket.destroy();
 });
 
 // Datagram socket to listen to datagrams incoming from musicians
