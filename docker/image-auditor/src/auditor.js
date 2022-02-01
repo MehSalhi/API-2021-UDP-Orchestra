@@ -9,6 +9,11 @@
 // il se met en écoute sur un port en attente de client
 // il envoie son tableau à chaque client connectés
 
+const role = new Map();
+role.set("ti-ta-ti", "piano");
+role.set("trulu", "flute");
+role.set("gzi-gzi", "violin");
+role.set("boum-boum", "drum");
 
 // Importe le module express
 var express = require('express');
@@ -22,12 +27,6 @@ const protocol = require('./orchestra-protocol');
 // tableau de musiciens
 var musicians = [];
 const timers = new Map();
-
-const role = new Map();
-role.set("ti-ta-ti", "piano");
-role.set("trulu", "flute");
-role.set("gzi-gzi", "violin");
-role.set("boum-boum", "drum");
 
 console.log("Auditor started...");
 
@@ -79,7 +78,8 @@ s.on('message', function(msg, source) {
 
 // fonction à executer à chaque connexion client
 function sendMusicians(){
-    return JSON.stringify(Array.from(musicians.entries()));
+    //return JSON.stringify(Array.from(musicians.entries()));
+    return JSON.stringify(Array.from(musicians));
 }
 
 // fonction à executer lorsqu'un musicien n'a pas émis de son depuis 5 secondes
