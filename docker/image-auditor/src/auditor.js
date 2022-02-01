@@ -67,7 +67,7 @@ s.on('message', function(msg, source) {
             instrument: role.get(obj.sound),
             activeSince: new Date().toISOString()
         });
-        timers.set(obj.entries().uuid, setTimeout(deleteMusician.bind(), 5000, obj.uuid));
+        timers.set(obj.uuid, setTimeout(deleteMusician.bind(), 5000, obj.uuid));
     }
     else {
         clearTimeout(timers.get(obj.uuid));
