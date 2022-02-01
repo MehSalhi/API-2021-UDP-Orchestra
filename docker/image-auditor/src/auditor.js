@@ -41,7 +41,11 @@ var server = app.listen(protocol.AUDITOR_PORT, function() {
 app.get('/', function(req, res) {
     res.send(sendMusicians());
 })
-
+	instruments.set("piano", "ti-ta-ti");
+	instruments.set("trumpet", "pouet");
+	instruments.set("flute", "trulu");
+	instruments.set("violin", "gzi-gzi");
+	instruments.set("drum", "boum-boum");
  */
 
 // executed on each new client connection
@@ -71,6 +75,7 @@ s.on('message', function(msg, source) {
     }
     else {
         clearTimeout(timers.get(obj.uuid));
+        timers.delete(obj.uuid);
         timers.set(obj.uuid, setTimeout(deleteMusician.bind(obj.uuid), 5000, obj.uuid));
     }
     //console.log(musicians.find(({ uuid }) => uuid === obj.uuid));
@@ -84,9 +89,9 @@ function sendMusicians(){
 }
 
 // fonction à executer lorsqu'un musicien n'a pas émis de son depuis 5 secondes
-function deleteMusician(uuid) {
-    var index = musicians.indexOf(musicians.find(({ uuid }) => uuid === uuid));
+function deleteMusician(_uuid) {
+    var index = musicians.indexOf(musicians.find(({ uuid }) => uuid === _uuid));
     musicians.splice(index, 1);
-    console.log("Deleted entry: " + uuid);
+    console.log("Deleted entry: " + _uuid);
 }
 console.log("Auditor terminated");
